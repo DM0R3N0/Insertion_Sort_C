@@ -52,10 +52,28 @@ insertion_sort (int *a)
   for (i = 1; i < MAX; i++)
     {
       aux = a[i];
-      for (j = i - 1; j >= 0 && aux < a[j]; j--)
+      for (j = i - 1; j >= 0 && aux < a[j]; j--) 
 	{
-	  a[j + 1] = a[j];
+	  a[j + 1] = a[j];  //deslocamento para a direita
 	}
-      a[j + 1] = aux;
+      a[j + 1] = aux; //insere o elemento na parte ordenada
     }
+}
+
+//Segunda opção
+// Funcao de Ordenacao por Insercao
+void
+insertion_sort (int *a)
+{ int i, j, aux;
+
+  for (i = 1; i < MAX; i++)
+    {
+      aux = a[i];
+	  
+      for (j = i; (j > 0) && (aux < a[j - 1]); j--){
+	        a[j] = a[j - 1];
+      }      
+      a[j] = aux;
+    }
+
 }
