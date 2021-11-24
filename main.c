@@ -12,7 +12,7 @@
 #define MAX 5
 
 // Prototipo da funcao de ordenacao
-void insertion_sort (int *a);
+void insertion_sort (int *V);
 
 int
 main (int argc, char **argv)
@@ -52,28 +52,28 @@ insertion_sort (int *a)
   for (i = 1; i < MAX; i++)
     {
       aux = a[i];
-      for (j = i - 1; j >= 0 && aux < a[j]; j--) 
+      for (j = i - 1; j >= 0 && aux < a[j]; j--) //deslocamento para a direita vai entrar nesse laço se o anterior for menor que o atual
 	{
-	  a[j + 1] = a[j];  //deslocamento para a direita
+	  a[j + 1] = a[j];  //deslocamento para a direita do numero maior
 	}
       a[j + 1] = aux; //insere o elemento na parte ordenada
     }
 }
-
+*/
 //Segunda opção
 // Funcao de Ordenacao por Insercao
 void
-insertion_sort (int *a)
+insertion_sort (int *V)
 { int i, j, aux;
 
   for (i = 1; i < MAX; i++)
     {
-      aux = a[i];
+      aux = V[i];
 	  
-      for (j = i; (j > 0) && (aux < a[j - 1]); j--){
-	        a[j] = a[j - 1];
+      for (j = i; (j > 0) && (aux < V[j - 1]); j--){
+	        V[j] = V[j - 1]; //inserido valor anterior que é maior no indice a frente
       }      
-      a[j] = aux;
+      V[j] = aux; //inserido valor menor ao indice anterior
     }
 
 }
